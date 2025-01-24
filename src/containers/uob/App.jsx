@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import signupImgae from '../../assets/signup_image.svg'
-import loginImage from '../../assets/login_image.svg'
-import googleIcon from '../../assets/google_icon.svg'
-import eyeIcon from '../../assets/eye_icon.svg'
-import './App.css'
+import { useState } from "react";
+import signupImgae from "../../assets/signup_image.svg";
+import loginImage from "../../assets/login_image.svg";
+import googleIcon from "../../assets/google_icon.svg";
+import eyeIcon from "../../assets/eye_icon.svg";
+import "./App.css";
+import Input from "../../components/input";
+import Separator from "../../components/separator";
+import Button from "../../components/button";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <main id="login">
@@ -14,33 +17,30 @@ function App() {
         <h1 className="form-heading">Create an Account 👋 </h1>
         <p className="desc">Kindly fill in your details to create an account</p>
 
-        <label for="fullname" className="text-inputs">
-          Your fullname*
-          <input type="text"></input>
-        </label>
-        <label for="email" className="text-inputs">
-          Email Address*
-          <input type="email"></input>
-        </label>
-        <label for="password" className="text-inputs">
-          Create password*
-          <div className='password'>
-            <input type="password"></input>
-            <img src={eyeIcon} className="eye-icon"></img>
-          </div>
-        </label>
-        <label for="terms" className="terms">
-          <input type="checkbox" id="terms" class="terms-checkbox"></input>I
-          agree to terms & conditions
-        </label>
+        <Input
+          fieldName="fullname"
+          inputType="text"
+          labelText="Your fullname*"
+        />
+        
+        <Input fieldName="email" inputType="email" labelText="Email Address*" />
+        
+        <Input
+          fieldName="password"
+          inputType="password"
+          labelText="Create password*"
+          eyeIcon={eyeIcon}
+        />
+        
+        <Input
+          fieldName="terms"
+          inputType="checkbox"
+          labelText="I agree to terms & conditions"
+        />
 
-        <button className="submit">Register Account</button>
+        <Button className="submit" buttonText="Register Account" />
 
-        <div className="line-break">
-          <hr></hr>
-          <p>or</p>
-          <hr></hr>
-        </div>
+        <Separator />
 
         <button className="social">
           <img src={googleIcon} alt="google-icon" class="google-icon" />
@@ -54,4 +54,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
